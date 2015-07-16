@@ -8,16 +8,16 @@ public class Day1_StarWarsNameGenerator {
 	
 	public static void main(String[] args){
 		
-		
+		// 
 		// instantiate scanner
 		
 		Scanner scn = new Scanner(System.in);
 		
 		/// initialise variables with input from user
-		String firstName = new String(MyGetInput("Please enter first name",scn,3));
-		String lastName = new String(MyGetInput("Please enter last name",scn,2));
-		String maidenName = new String(MyGetInput("Please enter mothers maiden name",scn,2));
-		String city= new String(MyGetInput("Please enter city name",scn,3));
+		String firstName = new String(myGetString("Please enter first name",scn,3));
+		String lastName = new String(myGetString("Please enter last name",scn,2));
+		String maidenName = new String(myGetString("Please enter mothers maiden name",scn,2));
+		String city= new String(myGetString("Please enter city name",scn,3));
 		
 		// close resources
 		scn.close();
@@ -42,7 +42,7 @@ public class Day1_StarWarsNameGenerator {
 	// MY GET INPUT
 	// gets the user input from keyboard
 	/// uses the java scanner object and console output to prompt the user for input
-	static String MyGetInput(String userMsg, Scanner s, int minLength){
+	static String myGetString(String userMsg, Scanner s, int minLength){
 		
 	    /// set initial values
 	    String returnStr = "";
