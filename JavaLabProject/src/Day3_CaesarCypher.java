@@ -11,7 +11,7 @@ public class Day3_CaesarCypher {
 		// String sentance = myGetString("Enter sentance to be encoded",scn,6);
 		
 		int keyNum = 15;
-		String sentance = "ABC DEf ZYZ";
+		String sentance = "Shut your DIRTY MOUTH";
 		
 		if ( false == isValidString(sentance)){
 			System.out.println("Please only use Characters a-z,A-Z and space " );		
@@ -40,8 +40,7 @@ public class Day3_CaesarCypher {
 		/// for loop around the string
 		for(int i=0; i<str.length()-1; i++){
 			chaNum =  (int) str.charAt(i); // get the existing char number
-			char newChar = (char) (chaNum - key);
-		
+			char newChar = (char) (int) encodeCharNum(chaNum, key);
 			eStr = eStr + Character.toString(newChar);
 						
 		}
@@ -84,7 +83,7 @@ public class Day3_CaesarCypher {
 		if (isBetween(chaNum,65,90)){
 			/// lowercase
 			return true;
-		} else if (isBetween(chaNum,65,90)){
+		} else if (isBetween(chaNum,97,122)){
 			// uppercase
 			return true;
 		} else if (chaNum == 32){
@@ -96,25 +95,81 @@ public class Day3_CaesarCypher {
 		
 	}
 	
-	// isValidChar
-	// returns true if the character is in the valid range
-	static boolean newCharNum(int chaNum, int offsetNum ){
+	// encodeCharNum
+	// returns encoded character number according  to key provided
+	static Integer encodeCharNum(int chaNum, int keyNum ){
+		
 		
 		if (isBetween(chaNum,65,90)){
 			/// lowercase
+			int underOffset = 65 - (chaNum - keyNum) ;
+			if(underOffset > 0){
+				// would be below character set , so needs to be offset to new char
+				return (90-underOffset);
+			}else{
+				return chaNum - keyNum;
+			}
+			
 		
-			return true;
-		} else if (isBetween(chaNum,65,90)){
+		} else if (isBetween(chaNum,97,122)){
 			// uppercase
-			return true;
+			int underOffset = 97 - (chaNum - keyNum) ;
+			if(underOffset > 0){
+				// would be below character set , so needs to be offset to new char
+				return (122-underOffset);
+			}else{
+				return chaNum - keyNum;
+			}
+			
+			
 		} else if (chaNum == 32){
 			// space
-			return true;
+			return keyNum;
+			
 		} else {
-			return false;
+			return 0;
+			
 		}
 		
 	}
+	
+	// decodeCharNum
+		// returns decoded character number according  to key provided
+		static Integer decodeCharNum(int chaNum, int keyNum ){
+			
+			
+			if (isBetween(chaNum,65,90)){
+				/// lowercase
+				int overOffset = 90 - (chaNum + keyNum) ;
+				if(overOffset > 0){
+					// would be below character set , so needs to be offset to new char
+					return (90-overOffset);
+				}else{
+					return chaNum - keyNum;
+				}
+				
+			
+			} else if (isBetween(chaNum,97,122)){
+				// uppercase
+				int underOffset = 97 - (chaNum - keyNum) ;
+				if(underOffset > 0){
+					// would be below character set , so needs to be offset to new char
+					return (122-underOffset);
+				}else{
+					return chaNum - keyNum;
+				}
+				
+				
+			} else if (chaNum == 32){
+				// space
+				return keyNum;
+				
+			} else {
+				return 0;
+				
+			}
+			
+		}
 	
 	/// isBetween
 	// works out if an integer falls between two set values
