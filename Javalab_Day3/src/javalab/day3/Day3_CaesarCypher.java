@@ -8,11 +8,14 @@ public class Day3_CaesarCypher {
 	/// get input	///
 		
 		Scanner scn = new Scanner(System.in);
+		// use input for sentance and cyper key
+		
 		// int keyNum = myGetInt("Enter Number",scn);
 		// String sentance = myGetString("Enter sentance to be encoded",scn,6);
 		
-		int keyNum = 1;
-		String sentance = "Shut your DIRTY MOUTH";
+		/// for testing supply the string and the key as initialised variables
+		int keyNum = 8;
+		String sentance = "abcd pqrs ABCD PQRS";
 		
 		if ( false == isValidString(sentance)){
 			System.out.println("Please only use Characters a-z,A-Z and space " );		
@@ -168,24 +171,25 @@ public class Day3_CaesarCypher {
 		// returns decoded character number according  to key provided
 		static Integer decodeCharNum(int chaNum, int keyNum ){
 			
+			int overOffset;
 			
+			/// upperCase
 			if (isBetween(chaNum,65,90)){
-				/// upperCase
-				int overOffset = 90 - (chaNum + keyNum) ;
-				if(overOffset > 0){
+				overOffset = 90 - (chaNum + keyNum) ; // work out the offset
+				if(overOffset <= 0){
 					// would be above character set , so needs to be offset to char lower in the charset
-					return (90-overOffset);
+					return (65 + -(overOffset));
 				}else{
 					return (chaNum + keyNum);
 				}
 				
-			
+								
 			} else if (isBetween(chaNum,97,122)){
 				// lowerCase
-				int overOffset = 97 - (chaNum + keyNum) ;
-				if(overOffset > 0){
-					// would be above character set , so needs to be offset to char lower in the charset
-					return (122-overOffset);
+				overOffset = 122  - (chaNum + keyNum)  ; // test for values that would fall below characterset
+				if(overOffset <= 0){
+					// would be above character set , so needs to be offset by the number of characters over
+					return (97 + -(overOffset));
 				}else{
 					return (chaNum + keyNum);
 				}
