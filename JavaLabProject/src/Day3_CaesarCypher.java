@@ -10,7 +10,7 @@ public class Day3_CaesarCypher {
 		// int keyNum = myGetInt("Enter Number",scn);
 		// String sentance = myGetString("Enter sentance to be encoded",scn,6);
 		
-		int keyNum = 15;
+		int keyNum = 1;
 		String sentance = "Shut your DIRTY MOUTH";
 		
 		if ( false == isValidString(sentance)){
@@ -19,6 +19,8 @@ public class Day3_CaesarCypher {
 		} else{
 			
 			String encodedSentance = encode(sentance,keyNum);
+			
+			System.out.println("Original sentance:" + sentance);		
 			System.out.println("Encoded sentance: " + encodedSentance);		
 			System.out.println("Decoded sentance: " + decode(encodedSentance,keyNum));		
 			
@@ -29,7 +31,7 @@ public class Day3_CaesarCypher {
 	}
 
 	
-	/// decode the string according to the cipher key
+	/// encode the string according to the cipher key
 	// INPUT: str - the string to be encoded
 	// 		  key - the cipher to be used 
 	static String encode(String str, int key){
@@ -38,7 +40,7 @@ public class Day3_CaesarCypher {
 		String badChars = "";
 		int chaNum = 0;
 		/// for loop around the string
-		for(int i=0; i<str.length()-1; i++){
+		for(int i=0; i<str.length(); i++){
 			chaNum =  (int) str.charAt(i); // get the existing char number
 			char newChar = (char) (int) encodeCharNum(chaNum, key);
 			eStr = eStr + Character.toString(newChar);
@@ -51,10 +53,38 @@ public class Day3_CaesarCypher {
 		}else{
 		   return "";
 		}
+			
+	}
+	
+	
+	
+	
+	/// decode the string according to the cipher key
+	// INPUT: str - the string to be encoded
+	// 		  key - the cipher to be used 
+	static String decode(String str, int key){
+		
+		String eStr = "";
+		String badChars = "";
+		int chaNum = 0;
+		/// for loop around the string
+		for(int i=0; i<str.length(); i++){
+			chaNum =  (int) str.charAt(i); // get the existing char number
+			char newChar = (char) (int) decodeCharNum(chaNum, key);
+			eStr = eStr + Character.toString(newChar);
+						
+		}
+		
+	
+		if (badChars.length() ==0) {
+    	   return eStr;
+		}else{
+		   return "";
+		}
 				
 		
-		
 	}
+	
 	
 	
 	// isValidString
@@ -101,24 +131,24 @@ public class Day3_CaesarCypher {
 		
 		
 		if (isBetween(chaNum,65,90)){
-			/// lowercase
+			/// Upper case
 			int underOffset = 65 - (chaNum - keyNum) ;
 			if(underOffset > 0){
 				// would be below character set , so needs to be offset to new char
 				return (90-underOffset);
 			}else{
-				return chaNum - keyNum;
+				return (chaNum - keyNum);
 			}
 			
 		
 		} else if (isBetween(chaNum,97,122)){
-			// uppercase
+			// lowercase
 			int underOffset = 97 - (chaNum - keyNum) ;
 			if(underOffset > 0){
 				// would be below character set , so needs to be offset to new char
 				return (122-underOffset);
 			}else{
-				return chaNum - keyNum;
+				return (chaNum - keyNum);
 			}
 			
 			
@@ -139,24 +169,24 @@ public class Day3_CaesarCypher {
 			
 			
 			if (isBetween(chaNum,65,90)){
-				/// lowercase
+				/// upperCase
 				int overOffset = 90 - (chaNum + keyNum) ;
 				if(overOffset > 0){
-					// would be below character set , so needs to be offset to new char
+					// would be above character set , so needs to be offset to char lower in the charset
 					return (90-overOffset);
 				}else{
-					return chaNum - keyNum;
+					return (chaNum + keyNum);
 				}
 				
 			
 			} else if (isBetween(chaNum,97,122)){
-				// uppercase
-				int underOffset = 97 - (chaNum - keyNum) ;
-				if(underOffset > 0){
-					// would be below character set , so needs to be offset to new char
-					return (122-underOffset);
+				// lowerCase
+				int overOffset = 97 - (chaNum + keyNum) ;
+				if(overOffset > 0){
+					// would be above character set , so needs to be offset to char lower in the charset
+					return (122-overOffset);
 				}else{
-					return chaNum - keyNum;
+					return (chaNum + keyNum);
 				}
 				
 				
@@ -171,26 +201,15 @@ public class Day3_CaesarCypher {
 			
 		}
 	
+		
+		
 	/// isBetween
 	// works out if an integer falls between two set values
 	public static boolean isBetween(int x, int lower, int upper) {
 		  return lower <= x && x <= upper;
 		}
 	
-	/// encode the string according to the cipher key
-	// INPUT: str - the string to be decoded
-	// 		  key - the cipher to be used 
-	static String decode(String str, int Key){
-		
-		
-		
-		return str;
-		
-		
-		
-		
-	}
-	
+
 	
 	// MY GET INT
 	// gets the user input from keyboard
