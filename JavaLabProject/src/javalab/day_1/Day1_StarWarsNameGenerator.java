@@ -1,4 +1,4 @@
-package Day_1;
+package javalab.day_1;
 import java.util.*;
 
 // StarWarsNameGenerator
