@@ -19,8 +19,7 @@ public class Day3_Recursion {
 		if (exponent == 1){
 		  return base;
 		}else{
-		
-		  System.out.println("base " + base);
+
 		  
 		  base = base * power(base, exponent-1);
 		  
