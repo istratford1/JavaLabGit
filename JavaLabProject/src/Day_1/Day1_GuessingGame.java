@@ -1,3 +1,4 @@
+package Day_1;
 
 import static java.lang.System.out;
 import java.util.Scanner;
