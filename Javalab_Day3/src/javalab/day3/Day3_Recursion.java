@@ -4,27 +4,41 @@ public class Day3_Recursion {
 
 	public static void main(String[] args){
 		
-		System.out.println("Power(3,3) = " + power(3,3));
-		
+		System.out.println("Power(4,4) = " + power(4,4));
+
 		
 		
 	}
 	
 	
+
+	
 	static Integer power(int base, int exponent){
 		
+	
+		if (exponent == 1){
+		  return base;
+		}else{
 		
-		while(exponent > 1){
-		    						
-		    base = base * base;
-			exponent --;
+		  System.out.println("base " + base);
+		  
+		  base = base * power(base, exponent-1);
+		  
+		  return base;
+					
+		   
 		}
-		
-		return base;
 				
 		
 	}
 	
 	
+	
+
+	    	
+		
+		
+	
+
 	
 }
