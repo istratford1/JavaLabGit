@@ -21,11 +21,7 @@ public class Day4_Animals {
 
 	
 	
-	
-	
-	
-	
-	/// simple random number generator that gives a random value between two ranges
+	   /// simple random number generator that gives a random value between two ranges
 		// INPUT: minValue , maxValue
 		
 		static int randomValue(int minValue, int maxValue)
