@@ -3,7 +3,7 @@ package javalab.day4.booksAuthors;
 public class Book {
 
 	// properties: pagecount, bookname, authorName , ISBN no, Publish Date
-	
+	// basic container class as a book cannot do much...
 	
 	private Integer pageCount;
 	private String title;
@@ -11,12 +11,20 @@ public class Book {
 	private Integer ISBNnumber;
 	private String authorName;
 
-	// constructor - book must have an author
-	public Book(String _AuthorName){
-		authorName = _AuthorName;
+	// default constructor
+	public Book(){
+	
+		pageCount = 0;
 				
 	}
 	
+	
+	// overload constructor - book must have an author
+	public Book(String _AuthorName){
+		this();
+		authorName = _AuthorName;
+				
+	}
 	
 	// overload constructor
 	// may have a title !
@@ -28,8 +36,24 @@ public class Book {
 
 	/// adds n pages to the book
 	public void addPage(int n){
-		pageCount += n;
+		pageCount =+ n;
 				
+	}
+	
+	
+
+	/// checks if the book has been published
+	public String getPublishStatus(){
+		if(publishDate != null){
+			return "published on "+ publishDate;
+			
+		} else {
+			
+			return "not published" ;
+			
+		}
+		
+		
 	}
 	
 	
@@ -38,6 +62,7 @@ public class Book {
 	
 	
 	public Integer getPageCount() {
+		
 		return pageCount;
 	}
 
