@@ -2,7 +2,7 @@ package javalab.day6.vehiclesOOP;
 
 import java.util.*;
 
-import javalab.day6.animalsOOP.Animal;
+
 
 public class DoStuffToVehicles {
 
