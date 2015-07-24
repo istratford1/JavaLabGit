@@ -30,7 +30,7 @@ public class Fish extends Animal {
 	}
 	
 	
-	@override
+	@Override
 	public void doStuff(){
 		super.doStuff();
 		this.bob();
