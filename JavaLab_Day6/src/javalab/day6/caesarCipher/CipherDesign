@@ -1,0 +1,35 @@
+
+/// quick design to show what should be possible
+Objects:
+
+Cipher
+
+Action:
+decode to file
+decode to string
+
+
+
+Usage:
+	
+	// usage should be tranparent to user - all they need to know is that there is Cipher class
+	// the class accepts a initial key, the Cipher object can be used to translate files and strings
+	
+	// usage as string
+	Cipher s = new Cipher(6); // set the key
+	String encodedString = Cipher.encode("This Sentence to encode");
+	String decodedString = Cipher.decode(encodedString);
+	
+	System.out.println("Decoded String: " + decodedString);
+	
+
+	// usage as file
+	
+	Cipher s = new Cipher(16); // set the key
+	File encodedFile = Cipher.encode(File f = new File("/src/fileToEncode.txt"));
+	File decodedFile = Cipher.decode(encodedFile)
+
+	System.out.println("Decoded File created in: " + decodedFile.path);
+	
+	
+	
