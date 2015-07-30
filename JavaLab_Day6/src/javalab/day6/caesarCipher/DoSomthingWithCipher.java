@@ -21,6 +21,7 @@ public class DoSomthingWithCipher {
 
 		// usage as file
 		
+		// test file should be in current workspace
 		String testFilePath = System.getProperty("user.dir") + "\\textExample.txt";
 		
 		CipherIO f = new CipherIO(22); // set the key

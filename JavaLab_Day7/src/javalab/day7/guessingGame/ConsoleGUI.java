@@ -2,12 +2,12 @@ package javalab.day7.guessingGame;
 
 import java.util.Scanner;
 
-public class ConsoleUI {
+public class ConsoleGUI {
 
 	
 	protected Scanner scn;
 	
-	public ConsoleUI() {
+	public ConsoleGUI() {
 		// initialise the scanner
 		resetScanner();
 		

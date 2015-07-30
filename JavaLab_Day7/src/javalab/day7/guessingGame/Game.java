@@ -9,7 +9,7 @@ public class Game {
 	// init the game object (sets rnd number, num guesses)
 	// 
 
-	ConsoleUI gui;
+	ConsoleGUI gui;
 
 	private int rndNumber;
 	private int maxGuess;
@@ -25,7 +25,7 @@ public class Game {
 	public Game() {
 		rndNumber = new Random().nextInt(10) + 1;
 		correctGuess = false;
-		gui = new ConsoleUI();
+		gui = new ConsoleGUI();
 
 	}
 
