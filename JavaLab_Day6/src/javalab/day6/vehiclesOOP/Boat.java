@@ -71,6 +71,16 @@ public class Boat extends Vehicle{
 			
 				
 	}
+
+
+
+
+
+	@Override
+	public void printMaxSpeed() {
+		// TODO Auto-generated method stub
+		System.out.println("Max speed is 20 Knots");
+	}
 		
 
 

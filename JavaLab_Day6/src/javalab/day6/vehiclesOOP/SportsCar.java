@@ -20,6 +20,19 @@ public class SportsCar extends Car {
 
 
 
+    
+
+
+
+	@Override
+	public void printMaxSpeed() {
+		// TODO Auto-generated method stub
+		System.out.println("Max speed is 130Mph");
+		
+	}
+
+
+
 
 
 

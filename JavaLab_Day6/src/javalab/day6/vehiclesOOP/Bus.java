@@ -61,5 +61,14 @@ public class Bus extends Vehicle{
 		
 	}
 
+
+
+
+	@Override
+	public void printMaxSpeed() {
+		// TODO Auto-generated method stub
+		System.out.println("Max speed is 60Mph");
+	}
+
 	
 }

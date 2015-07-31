@@ -4,12 +4,18 @@ package javalab.day6.vehiclesOOP;
 
 public class Car extends Vehicle{
 
-
+	@Override
+	public void printMaxSpeed() {
+		// TODO Auto-generated method stub
+		System.out.println("Max speed is 90Mph");
+	}
+	
 
 	// unique to car
 	private Integer numSeats;
 	private boolean hasStereo;
 	private boolean hasLeatherSeats;
+	
 	
 	
 	public Car() {
@@ -57,7 +63,8 @@ public class Car extends Vehicle{
 		
 		
 	}
-	
+
+
 
 				
 		

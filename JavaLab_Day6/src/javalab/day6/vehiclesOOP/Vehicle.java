@@ -1,6 +1,6 @@
 package javalab.day6.vehiclesOOP;
 
-public class Vehicle {
+public abstract class Vehicle {
 
 	
 	// common to all vehicles	
@@ -12,7 +12,7 @@ public class Vehicle {
 	private Integer conditionPerc;
 	private String purchaseDate;
 	
-	
+	public abstract void printMaxSpeed();
 	
 	// default constructor
 	public Vehicle(){
