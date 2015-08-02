@@ -1,4 +1,4 @@
-package javalab.day7.guessingGame;
+package javalab.day11.interfaces.guessingGame;
 
 import java.util.Random;
 
@@ -9,7 +9,9 @@ public class Game {
 	// init the game object (sets rnd number, num guesses)
 	// 
 
-	ConsoleGUI gui;
+	TextInputGUI inputGui;
+	TextOutputGUI outputGUI;
+	
 
 	private int rndNumber;
 	private int maxGuess;
@@ -26,7 +28,7 @@ public class Game {
 		rndNumber = new Random().nextInt(10) + 1;
 		correctGuess = false;
 		numGuess = 0;
-		gui = new ConsoleGUI();
+	
 
 	}
 
@@ -51,15 +53,9 @@ public class Game {
 
 	}
 
-	public String getUserName(){
-		gui.ShowMsg("Please enter your name");
-		return gui.getUserString();
-	}
 
-	public boolean carryOn(){
-		gui.ShowMsg("Do you want to continue");
-		return gui.getYesNo();
-	}
+
+
 
 
 	// runs the game. displays the menu and ask for difficualty
@@ -70,17 +66,16 @@ public class Game {
 
 		numGuess = 0;
 		int guess;
-		gui.ShowMsg("Please select difficulty 1-9");
-		difficulty = gui.getUserInt(); // difficulty
+        outputGUI.displayGameStart();
+		difficulty = inputGui.getUserInt(); // difficulty
 		setMaxGuess();
 
 
 		// test if the user has guessed correctly..
 		do {
 			numGuess ++;
-			gui.ShowMsg("You have " + (getMaxGuess() - numGuess) + " guesses remaining");
-
-			guess = gui.getUserInt();
+			
+			guess = inputGui.getUserInt();
 
 			if(guess == rndNumber){
 				correctGuess = true;
@@ -95,31 +90,6 @@ public class Game {
 	}
 
 
-	public void ShowPlayerResult(){
-
-
-		if(correctGuess &&  (!outOfGuesses)){
-			// success
-			gui.ShowMsg("Well done, you guessed correctly in " + numGuess + " guesses");
-		} else{			
-			// too many guesses, or not correct
-			gui.ShowMsg("Sorry, you didn't win this time");
-			
-		}	
-
-
-	}
-
-	public void showHighScore(String highScoreName, int highScoreValue) {
-
-		if(highScoreValue > 0){
-			if (highScoreName != "" || highScoreName !=null){
-				gui.ShowMsg("Current high score of " + highScoreValue + " was set by " + highScoreName);
-			} else {	
-				gui.ShowMsg("Current high score of " + highScoreValue );	
-
-			}
-		}
 
 	}
 
@@ -133,4 +103,4 @@ public class Game {
 	
 	
 	
-}
+
