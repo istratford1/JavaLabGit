@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<employees>
+
+  <employee id="9981">
+	<details>
+			<name>Margaret James</name>
+			<salary>66255</salary>
+			<startDate>12/01/1970</startDate>
+	</details> 
+	<deptCode> UKGB </deptCode> 
+	 
+	  
+  </employee>
+
+  <employee id="9992">
+	<details>
+			<name>Ian Stratford</name>
+			<salary>223344</salary>
+			<startDate>24/07/2009</startDate>
+	</details> 
+	<deptCode> DUBD </deptCode> 
+	 	 
+	  
+  </employee>
+  
+   <employee id="10023">
+	<details>
+			<name>Paul Sutton-Taylor</name>
+			<salary>223344</salary>
+			<startDate>01/01/2012</startDate>
+	</details> 
+	<deptCode> GDKI </deptCode> 
+	 	 
+	  
+  </employee>
+
+</employees>
