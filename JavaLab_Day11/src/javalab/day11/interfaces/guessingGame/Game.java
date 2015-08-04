@@ -9,8 +9,11 @@ public class Game {
 
 
 	private int rndGuess;
+	
 	private int maxGuess;
 	private int numGuess;
+
+	
 	private int currentGuess;
 	private boolean correctGuess;
 
@@ -30,6 +33,7 @@ public class Game {
 
 	}
 
+			
 	public boolean isFinished(){
 		return (isCorrectGuess() || numGuess >= maxGuess) ;
 				
@@ -48,16 +52,24 @@ public class Game {
 
 	public void setDifficulty(int d){
 		this.difficulty = d;
-		this.maxGuess = (9-difficulty);
+		this.maxGuess = (10-difficulty);
 		
 		
 	}
 	
 	
-	
+	public void setRndGuess(int rndGuess) {
+		this.rndGuess = rndGuess;
+	}
+
+	public int getMaxGuess() {
+		return maxGuess;
+	}
+
 	public void haveGuess(int guess){
 		
 		 this.currentGuess = guess;
+		 numGuess ++;
 		
 	}
 	
@@ -69,6 +81,14 @@ public class Game {
      }
 
 
+     public int getNumGuess() {
+ 		return numGuess;
+ 	}
+
+
+	public void setNumGuess(int numGuess) {
+		this.numGuess = numGuess;
+	}
 
 
 
