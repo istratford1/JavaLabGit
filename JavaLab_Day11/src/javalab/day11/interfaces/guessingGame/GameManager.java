@@ -3,6 +3,10 @@ package javalab.day11.interfaces.guessingGame;
 public class GameManager {
 
 	
+	static TextInputGUI inputGUI = new TextInputGUI();
+	
+	static TextOutputGUI outputGUI = new TextOutputGUI();
+	
 	
 	static Game game;
 	
@@ -11,11 +15,30 @@ public class GameManager {
 		
 		game = new Game();
 		
-		game.outputGUI.displayGameStart();
+		outputGUI.displayGameStart();
+	
+		outputGUI.displayMainMenu();
+		game.setDifficulty(inputGUI.getUserInt());
 		
-		game.RunGame();
+		do{
 		
-		game.outputGUI.displayGameEnd();
+		outputGUI.displayGameState();
+		
+		game.haveGuess(inputGUI.getUserInt());
+		
+		} while ( ! game.isFinished());
+		
+		
+		if (game.isCorrectGuess()){
+			outputGUI.displayWin();
+		} else {
+			outputGUI.displayLose();
+			
+		}
+			
+		
+		
+		outputGUI.displayGameEnd();
 		
 		
 	}
