@@ -8,6 +8,15 @@ import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
 
+
+/**
+ * @author ian
+ * 
+ * MySaxHandler
+ * As used to read an XML list employees into employee objects and store them in a list<Employee>
+ * Uses boolean flags to find elements of interest, then reads the text content in the element
+ *
+ */
 public class MySaxHandler extends DefaultHandler {
 
 	 //List to hold Employees object
@@ -20,7 +29,7 @@ public class MySaxHandler extends DefaultHandler {
         return empList;
     }
  
-    // elements that we are interested in. use these as flags to read content 
+    // element variables that we are interested in. use these as flags to read content 
     boolean bStartDate = false;
     boolean bName = false;
     boolean bSalary = false;
@@ -44,11 +53,11 @@ public class MySaxHandler extends DefaultHandler {
         } else if (qName.equalsIgnoreCase("employees")) {
            ///
           
-        
+            
+         //set boolean values for element vars, will be used to read element text content into Employee variables
+            
         } else if (qName.equalsIgnoreCase("details")) {
             bDetails = true;
-                
-        //set boolean values for fields, will be used in setting Employee variables
                 
         } else if (qName.equalsIgnoreCase("name")) {
             bName = true;
@@ -73,11 +82,11 @@ public class MySaxHandler extends DefaultHandler {
  
     @Override
     public void characters(char ch[], int start, int length) throws SAXException {
-        // have a look for which element is currently set and add the information to the relevent fields
+        // have a look for which element is currently in use (via the flag we set earlier) and add the information to the relevent fields
         if (bStartDate) {
-        	// for each item we need to parse the array of chars into a string to store in employee object
+        	// for each item we need to parse the array of chars in the element into a string
             emp.setStartDate(new String(ch, start, length));
-            bStartDate = false;
+            bStartDate = false; // reset the elemnt variable
         } else if (bName) {
             emp.setName(new String(ch, start, length));
             bName = false;
@@ -85,7 +94,7 @@ public class MySaxHandler extends DefaultHandler {
             emp.setDeptCode(new String(ch, start, length));
             bDeptCode = false;
         } else if (bSalary) {
-            emp.setSalary(Integer.parseInt(new String(ch, start, length)));
+            emp.setSalary(Integer.parseInt(new String(ch, start, length))); // this one expects an int !
             bSalary = false;
         }
     }
