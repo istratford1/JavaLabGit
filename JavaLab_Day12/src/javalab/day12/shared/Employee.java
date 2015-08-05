@@ -1,4 +1,5 @@
-package javalab.day12.XML_DOM;
+package javalab.day12.shared;
+
 
 public class Employee {
 

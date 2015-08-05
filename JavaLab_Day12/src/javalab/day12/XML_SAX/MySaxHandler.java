@@ -3,6 +3,8 @@ package javalab.day12.XML_SAX;
 import java.util.ArrayList;
 import java.util.List;
 
+import javalab.day12.shared.Employee;
+
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;

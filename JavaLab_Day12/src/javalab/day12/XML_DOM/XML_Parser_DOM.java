@@ -3,6 +3,8 @@ package javalab.day12.XML_DOM;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javalab.day12.shared.Employee;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
