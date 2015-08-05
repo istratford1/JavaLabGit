@@ -6,7 +6,7 @@ public class Blank extends Marker {
 
 	
 	
-	public Blank() {
+	private Blank() {
 		this.setMark('_');
 	}
 
